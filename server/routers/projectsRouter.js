@@ -20,8 +20,8 @@ projectsRouter.post('/', async (req, res) => {
     const body = req.body;
     console.log('body', body)
     
-    if (!body.name && !body.completed) {
-        res.status(500).json({ message: 'You must provide a name and completed status.' });
+    if (!body.name) {
+        res.status(500).json({ message: 'You must provide a name.' });
     }
 
     const project = await projects.addProject(body);
