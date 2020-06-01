@@ -3,7 +3,7 @@ const Resources = require('../models/resource-model');
 const resourcesRouter = express.Router();
 
 // GET RESOURCES
-resourcesRouter.get('/', async (req, res) => {
+resourcesRouter.get('/:id/resources', async (req, res) => {
     const resourceList = await Resources.getResources();
 
     if (resourceList) {
@@ -13,8 +13,8 @@ resourcesRouter.get('/', async (req, res) => {
     }
 })
 
-// ADD RESOURCES
-resourcesRouter.post('/', async (req, res) => {
+// CREATE RESOURCE
+resourcesRouter.post('/:id/resources', async (req, res) => {
     const body = req.body;
 
     if (!body.name) {

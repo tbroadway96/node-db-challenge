@@ -17,15 +17,13 @@ tasksRouter.get('/:id/tasks', async (req, res) => {
 
 // CREATE TASK
 tasksRouter.post('/:id/tasks', async (req, res) => {
+    const body = req.body;
 
-    if (!req.body.description && !req.body.completed) {
+    if (!body.description && !body.completed) {
         res.status(500).json({ message: 'You must provide a description and completed status.' });
     }
 
-    const task = await Tasks.addTask({
-        description: req.body.description,
-        completed: req.body.completed
-    });
+    const task = await Tasks.addTask(body);
 
     if (task) {
         res.status(200).json(task);

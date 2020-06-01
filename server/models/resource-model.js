@@ -1,7 +1,7 @@
 const db = require('../../data/db-config');
 
 const addResource = (resource) => {
-    return db('resources').insert(resource);
+    return db('resources').insert(resource, 'id');
 }
 
 const getResources = () => {
