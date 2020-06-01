@@ -1,5 +1,4 @@
 const db = require('../../data/db-config');
-const helpers = require('../helpers');
 
 const addResource = (resource) => {
     return db('resources').insert(resource);
